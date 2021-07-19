@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyle } from "./components/GlobalStyle";
+
+import Layout from "./components/Layout";
+import RecipeList from "./components/RecipeList";
+import Cart from "./components/Cart";
+
+import CartFunction from "./context/CartContext";
+import AmountFunction from "./context/AmountContext";
+import PriceFunction from "./context/PriceContext";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyle />
+      <PriceFunction>
+        <AmountFunction>
+          <CartFunction>
+            <Layout>
+              <RecipeList />
+              <Cart />
+            </Layout>
+          </CartFunction>
+        </AmountFunction>
+      </PriceFunction>
     </div>
   );
 }
