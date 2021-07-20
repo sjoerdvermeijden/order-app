@@ -5,7 +5,21 @@ const recipes = [
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, ipsum!',
         ingredients: ['pasta', 'salami', 'wheat'],
         price: 9.99,
-        id: 0
+        id: 0,
+        extra: [
+            {
+                saus: 'mayonaisse',
+                price: '0.50',
+            },
+            {
+                saus: 'ketchup',
+                price: '0.70',
+            },
+            {
+                saus: 'saté',
+                price: '0.65',
+            }
+        ]
     },
     {
         recipe: "Pancakes",
@@ -13,7 +27,7 @@ const recipes = [
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, ipsum!',
         ingredients: ['pasta', 'salami', 'wheat'],
         price: 9.99,
-        id: 1
+        id: 1,
     },
     {
         recipe: "Spaghetti",
@@ -21,7 +35,7 @@ const recipes = [
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, ipsum!',
         ingredients: ['pasta', 'salami', 'wheat'],
         price: 9.99,
-        id: 2
+        id: 2,
     },
     {
         recipe: "Pizza",
@@ -29,7 +43,7 @@ const recipes = [
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, ipsum!',
         ingredients: ['pasta', 'salami', 'wheat'],
         price: 12.99,
-        id: 3
+        id: 3,
     }
 ]
 

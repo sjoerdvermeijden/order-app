@@ -5,12 +5,17 @@ import { CartContext } from "../context/CartContext";
 import { AmountContext } from "../context/AmountContext";
 import { PriceContext } from "../context/PriceContext";
 
-function Recipe({ title, price, description, ingredients, image }) {
+function Recipe({ title, price, description, ingredients, extra, image }) {
   const [cartItems, setCartItems] = useContext(CartContext);
   const [amount, setAmount] = useContext(AmountContext);
   const [totalPrice, setTotalPrice] = useContext(PriceContext);
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const addItem = () => {
+    setCartItems([...cartItems, {title, id: Math.random(), price}])
+    setTotalPrice(totalPrice + price)
+  }
 
   return (
     <>
@@ -31,11 +36,17 @@ function Recipe({ title, price, description, ingredients, image }) {
               <h4 className="price">€{price}</h4>
             </div>
             <div className="recipe__add-button">
-              <button onClick="">+</button>
+              <button onClick={(id) => setIsOpen(!isOpen)} className={`${(isOpen) ? 'close' : 'open'}`}>
+                {
+                  (isOpen)
+                  ? '-'
+                  : '+'
+                }
+              </button>
             </div>
           </div>
           <div className="recipe__extra">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto, voluptatum.</p>
+            <button onClick={addItem}>Add to cart</button>
           </div>
         </div>
       </RecipeWrapper>

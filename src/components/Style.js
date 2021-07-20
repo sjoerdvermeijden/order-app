@@ -35,14 +35,8 @@ export const RecipeListWrapper = styled.div`
 
     &__container {
       display: flex;
-    }
-
-    &__image {
-
-      &:not(:last-child) {
-        margin-right: 15px;
-      }
-      
+      background: var(--lightgray);
+      padding: 15px;
     }
 
     &__content {
@@ -51,17 +45,23 @@ export const RecipeListWrapper = styled.div`
       margin-right: auto;
     }
 
-    &__extra {
-      display: none;
-
-      &.is-open {
-        display: block;
-      }
-
-    }
-
     .price {
       margin-top: auto;
+    }
+
+    &__extra {
+      display: none;
+      padding: 15px;
+    }
+
+  }
+
+  .is-open {
+
+    .recipe__extra {
+      display: block;
+      font-size: 14px;
+      background: var(--lightgray);
     }
 
   }
@@ -75,8 +75,6 @@ export const RecipeListWrapper = styled.div`
   }
 
   li {
-    background: var(--lightgray);
-    padding: 15px;
 
     &:not(:last-child) {
         margin-bottom: 15px;
@@ -121,6 +119,16 @@ export const RecipeWrapper = styled.div`
   button {
     padding: 9px 11px;
     background: var(--gray);
+
+    &.close {
+      padding: 9px 13px;
+    }
+
+    &:hover,
+    &:focus {
+      cursor: pointer;  
+    }
+
   }
 
   ul {
