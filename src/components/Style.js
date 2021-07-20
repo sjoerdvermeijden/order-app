@@ -52,6 +52,53 @@ export const RecipeListWrapper = styled.div`
     &__extra {
       display: none;
       padding: 15px;
+
+      li {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+          margin-bottom: 8px;
+        }
+        
+      }
+
+      .check {
+        margin-right: 10px;
+        margin-top: 1px;
+      }
+
+    }
+
+    &__extra-list {
+      display: flex;
+      flex-direction: column;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      .label {
+        display: inline-block;
+
+        &:not(:last-child) {
+          margin-right: 5px;
+        }
+
+      }
+      
+    }
+
+    &__add {
+      display: flex;
+    }
+
+    &__amount {
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+      
     }
 
   }
