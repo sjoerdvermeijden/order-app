@@ -32,83 +32,26 @@ export const RecipeListWrapper = styled.div`
   flex-grow: 1;
 
   .recipe {
+    background: var(--lightgray);
+    padding: 15px;
+    display: flex;
 
     &__container {
       display: flex;
-      background: var(--lightgray);
-      padding: 15px;
+      align-items: flex-start;
+      flex-grow: 1;
     }
 
     &__content {
-      display: flex;
-      flex-direction: column;
       margin-right: auto;
+    }
+
+    &__add {
+      margin-left: 15px;
     }
 
     .price {
       margin-top: auto;
-    }
-
-    &__extra {
-      display: none;
-      padding: 15px;
-
-      li {
-        display: flex;
-        align-items: center;
-
-        &:not(:last-child) {
-          margin-bottom: 8px;
-        }
-        
-      }
-
-      .check {
-        margin-right: 10px;
-        margin-top: 1px;
-      }
-
-    }
-
-    &__extra-list {
-      display: flex;
-      flex-direction: column;
-
-      &:not(:last-child) {
-        margin-bottom: 20px;
-      }
-
-      .label {
-        display: inline-block;
-
-        &:not(:last-child) {
-          margin-right: 5px;
-        }
-
-      }
-      
-    }
-
-    &__add {
-      display: flex;
-    }
-
-    &__amount {
-
-      &:not(:last-child) {
-        margin-right: 15px;
-      }
-      
-    }
-
-  }
-
-  .is-open {
-
-    .recipe__extra {
-      display: block;
-      font-size: 14px;
-      background: var(--lightgray);
     }
 
   }
@@ -133,9 +76,17 @@ export const RecipeListWrapper = styled.div`
 export const RecipeWrapper = styled.div`
 
   .recipe__image {
-  }
 
-  img {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+
   }
   
   h3 {
@@ -148,6 +99,11 @@ export const RecipeWrapper = styled.div`
 
   .price {
     color: var(--red);
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+    
   }
 
   .description {
@@ -176,14 +132,6 @@ export const RecipeWrapper = styled.div`
       cursor: pointer;  
     }
 
-  }
-
-  ul {
-    display: flex;
-  }
-
-  li {
-    padding: 0;
   }
 
 `;

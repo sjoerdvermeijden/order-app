@@ -1,91 +1,35 @@
+import ImageOne from './images/hamburger.jpg';
+import ImageTwo from './images/panckes.jpg';
+import ImageThree from './images/spaghetti.jpg';
+
 const recipes = [
     {
         recipe: "Hamburger",
-        image: './images/hamburger.jpg',
+        image: ImageOne,
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, ipsum!',
-        ingredients: ['pasta', 'salami', 'wheat'],
         price: 9.99,
-        id: 0,
-        extras: [
-            {
-                saus: 'mayonaisse',
-                price: '0.50',
-            },
-            {
-                saus: 'ketchup',
-                price: '0.70',
-            },
-            {
-                saus: 'saté',
-                price: '0.65',
-            }
-        ]
+        id: 0
     },
     {
         recipe: "Pancakes",
-        image: './images/hamburger.jpg',
+        image: ImageTwo,
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, ipsum!',
-        ingredients: ['pasta', 'salami', 'wheat'],
         price: 9.99,
-        id: 1,
-        extras: [
-            {
-                saus: 'mayonaisse',
-                price: '0.50',
-            },
-            {
-                saus: 'ketchup',
-                price: '0.70',
-            },
-            {
-                saus: 'saté',
-                price: '0.65',
-            }
-        ]
+        id: 1
     },
     {
         recipe: "Spaghetti",
-        image: './images/hamburger.jpg',
+        image: ImageThree,
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, ipsum!',
-        ingredients: ['pasta', 'salami', 'wheat'],
         price: 9.99,
-        id: 2,
-        extras: [
-            {
-                saus: 'mayonaisse',
-                price: '0.50',
-            },
-            {
-                saus: 'ketchup',
-                price: '0.70',
-            },
-            {
-                saus: 'saté',
-                price: '0.65',
-            }
-        ]
+        id: 2
     },
     {
         recipe: "Pizza",
-        image: './images/hamburger.jpg',
+        image: ImageThree,
         description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, ipsum!',
-        ingredients: ['pasta', 'salami', 'wheat'],
         price: 12.99,
-        id: 3,
-        extras: [
-            {
-                saus: 'mayonaisse',
-                price: '0.50',
-            },
-            {
-                saus: 'ketchup',
-                price: '0.70',
-            },
-            {
-                saus: 'saté',
-                price: '0.65',
-            }
-        ]
+        id: 3
     }
 ]
 

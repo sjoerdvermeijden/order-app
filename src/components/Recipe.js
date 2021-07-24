@@ -1,67 +1,42 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { RecipeWrapper } from "./Style";
 import { CartContext } from "../context/CartContext";
-import { AmountContext } from "../context/AmountContext";
 import { PriceContext } from "../context/PriceContext";
 
-function Recipe({ title, price, description, ingredients, extra, image }) {
+function Recipe({ title, id, price, description, image }) {
   const [cartItems, setCartItems] = useContext(CartContext);
-  const [amount, setAmount] = useContext(AmountContext);
   const [totalPrice, setTotalPrice] = useContext(PriceContext);
+  
+  const addItem = (id) => {
+    
+    if (cartItems.find((item) => item.id === id)) {
+      const cartItem  = cartItems.find((item) => item.id === id);
+      cartItem.cartCount++;
+      localStorage.setItem("cart", JSON.stringify(cartItems));
 
-  const [isOpen, setIsOpen] = useState(false);
+      setTotalPrice(prevPrice => prevPrice + price);
+      return;
+    }
 
-  const addItem = () => {
-    setCartItems([...cartItems, { title, id: Math.random(), price }]);
-    setTotalPrice(totalPrice + price);
+    setCartItems([...cartItems, { title, id: id, price, cartCount: 1 }]);
+    setTotalPrice(prevPrice => prevPrice + price);
   };
 
   return (
     <>
       <RecipeWrapper>
-        <div className={"recipe " + (isOpen ? "is-open" : null)}>
+        <div className="recipe">
+          <figure className="recipe__image">
+            <img src={image} alt="" />
+          </figure>
           <div className="recipe__container">
-            <figure className="recipe__image">
-              <img src={image} alt="" />
-            </figure>
             <div className="recipe__content">
               <h3>{title}</h3>
               <p className="description">{description}</p>
-              <ul>
-                {ingredients.map((element) => {
-                  return <li>{element}</li>;
-                })}
-              </ul>
               <h4 className="price">€{price}</h4>
             </div>
-            <div className="recipe__add-button">
-              <button
-                onClick={(id) => setIsOpen(!isOpen)}
-                className={`${isOpen ? "close" : "open"}`}
-              >
-                {isOpen ? "-" : "+"}
-              </button>
-            </div>
-          </div>
-          <div className="recipe__extra">
-            <ul className="recipe__extra-list">
-              {extra.map((item) => {
-                return (
-                  <li>
-                    <input type="checkbox" className="check" />
-                    <span className="label">{item.saus}</span>
-                    <span className="prijs">(+ €0,50)</span>
-                  </li>
-                );
-              })}
-            </ul>
-            <div className="recipe__add">
-              <div className="recipe__amount">
-                <input type="number" name="" id="" placeholder="1" />
-              </div>
-              <button onClick={addItem}>Add to cart</button>
-            </div>
+            <button className="recipe__add" onClick={(e) => addItem(id)}>+</button>
           </div>
         </div>
       </RecipeWrapper>

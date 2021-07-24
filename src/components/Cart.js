@@ -29,9 +29,9 @@ function Cart() {
   const removeItem = (id) => {
     const newList = cartItems.filter((item) => item.id !== id);
 
-    cartItems.forEach(item => {
+    cartItems.forEach((item) => {
       if (id === item.id) {
-        setTotalPrice(totalPrice - item.price);
+        setTotalPrice(totalPrice - item.price * item.cartCount);
       }
     });
 
@@ -47,7 +47,7 @@ function Cart() {
               return (
                 <li>
                   <div className="cart-item">
-                    <div className="cart-item__count">(1)</div>
+                    <div className="cart-item__count">({item.cartCount})</div>
                     <div className="cart-item__label">{item.title}</div>
                     <div className="cart-item__price">€{item.price}</div>
                   </div>
