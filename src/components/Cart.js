@@ -6,6 +6,8 @@ import { CartItems, CartTotal } from "./Style";
 import { CartContext } from "../context/CartContext";
 import { PriceContext } from "../context/PriceContext";
 
+import { FaTrashAlt } from 'react-icons/fa';
+
 function Cart() {
   const [cartItems, setCartItems] = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useContext(PriceContext);
@@ -38,6 +40,26 @@ function Cart() {
     setCartItems(newList);
   };
 
+  const addItem = (id) => {
+    const newItems = cartItems.map((item) => {
+      if (item.id === id) {
+        item.cartCount++
+      }
+      return item
+    })
+    setCartItems(newItems);
+  }
+
+  const subtracktItem = (id) => {
+    const newItems = cartItems.map((item) => {
+      if (item.id === id && item.cartCount > 1) {
+        item.cartCount--
+      }
+      return item
+    })
+    setCartItems(newItems);
+  }
+
   return (
     <>
       <CartWrapper>
@@ -51,11 +73,15 @@ function Cart() {
                     <div className="cart-item__label">{item.title}</div>
                     <div className="cart-item__price">€{item.price}</div>
                   </div>
+                  <div className="cart-buttons">
+                    <button className="cart-buttons__subtrackt" onClick={(e) => subtracktItem(item.id)}>-</button>
+                    <button className="cart-buttons__add" onClick={(e) => addItem(item.id)}>+</button>
+                  </div>
                   <button
-                    className="remove"
+                    className="remove-button"
                     onClick={(e) => removeItem(item.id)}
                   >
-                    -
+                    <FaTrashAlt />
                   </button>
                 </li>
               );

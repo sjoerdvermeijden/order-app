@@ -6,13 +6,13 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const FooterWrapper = styled.footer`
-    background: black;
+    background: var(--darkgray);
     padding: 25px 0;
     color: white;
 `;
 
 export const Wrapper = styled.div`
-    max-width: 1140px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 20px;
 `;
@@ -139,7 +139,7 @@ export const RecipeWrapper = styled.div`
 export const CartWrapper = styled.div`
   padding: 25px;
   background: var(--lightgray);
-  min-width: 350px;
+  min-width: 400px;
 
   ul {
     display: flex;
@@ -195,6 +195,10 @@ export const CartItems = styled.div`
     display: flex;
     flex-grow: 1;
 
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+
     &__label,
     &__count {
 
@@ -210,8 +214,43 @@ export const CartItems = styled.div`
 
   }
 
+  .cart-buttons {
+    display: flex;
+    align-items: center;
+    
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    &__subtrackt,
+    &__add {
+      padding: 8px 12px;
+    }
+
+    &__subtrackt {
+      padding: 7px 12px 9px;
+    }
+    
+    &__add {
+      padding: 8px 11px;
+    }
+
+    button {
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+
+    }
+
+  }
+
   button {
-    padding: 8px 12px;
+
+    &.remove-button {
+      padding: 8px 10px 6px;
+    }
+
   }
 
 `;

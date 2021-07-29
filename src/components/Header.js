@@ -7,7 +7,7 @@ function Header() {
   return <>
     <HeaderWrapper>
       <Wrap>
-        <p>Lorem, ipsum dolor.</p>
+        <h1>Order</h1>
       </Wrap>
     </HeaderWrapper>
   </>;
