@@ -44,6 +44,7 @@ function Cart() {
     const newItems = cartItems.map((item) => {
       if (item.id === id) {
         item.cartCount++
+        setTotalPrice(prevPrice => prevPrice + item.price)
       }
       return item
     })
@@ -54,6 +55,7 @@ function Cart() {
     const newItems = cartItems.map((item) => {
       if (item.id === id && item.cartCount > 1) {
         item.cartCount--
+        setTotalPrice(prevPrice => prevPrice - item.price)
       }
       return item
     })

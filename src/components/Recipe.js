@@ -4,7 +4,7 @@ import { RecipeWrapper } from "./Style";
 import { CartContext } from "../context/CartContext";
 import { PriceContext } from "../context/PriceContext";
 
-function Recipe({ title, id, price, description, image }) {
+function Recipe({ title, id, price, description, image, extras }) {
   const [cartItems, setCartItems] = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useContext(PriceContext);
   
@@ -23,6 +23,10 @@ function Recipe({ title, id, price, description, image }) {
     setTotalPrice(prevPrice => prevPrice + price);
   };
 
+  const addTopping = (id) => {
+    console.log(id)
+  }
+
   return (
     <>
       <RecipeWrapper>
@@ -35,6 +39,15 @@ function Recipe({ title, id, price, description, image }) {
               <h3>{title}</h3>
               <p className="description">{description}</p>
               <h4 className="price">€{price}</h4>
+              <ul className="extras">
+                {extras.map((item) => {
+                  return <li className="extra">
+                    <input className="extra__checkbox" type="checkbox" name="" id="" onClick={(e) => addTopping(item.id)} />
+                    <span className="extra__label">{item.ingredient}</span>
+                    <span className="extra__price">(+ {item.price})</span>
+                  </li>
+                })}
+              </ul>
             </div>
             <button className="recipe__add" onClick={(e) => addItem(id)}>+</button>
           </div>

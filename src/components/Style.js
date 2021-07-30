@@ -119,6 +119,33 @@ export const RecipeWrapper = styled.div`
     font-size: 14px;
   }
 
+  .extra {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &__checkbox {
+      
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+
+    }
+    
+    &__label {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+
+    }
+
+  }
+
   button {
     padding: 9px 11px;
     background: var(--gray);
